@@ -1,0 +1,9 @@
+.button {
+  inline-size: min(100%, 30ch);
+  padding-block: var(--space-2xs);
+  padding-inline: var(--space-xs);
+  border-radius: 9999px;
+  background-color: var(--clr-800);
+  text-decoration: none;
+  color: var(--clr-050);
+}

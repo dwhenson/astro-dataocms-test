@@ -1,0 +1,6 @@
+.full-bleed {
+  // Use JS if scrollbar causing horizontal scroll
+  // inline-size: calc(100vw - var(--scrollbar-width));
+  inline-size: 100vw;
+  margin-inline-start: calc(50% - 50vw);
+}

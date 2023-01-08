@@ -1,0 +1,15 @@
+.icon {
+  inline-size: 1cap;
+  inline-size: 0.75em;
+  block-size: 1cap;
+  block-size: 0.75em;
+}
+
+.with-icon {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.with-icon .icon {
+  margin-inline-end: 1rem;
+}

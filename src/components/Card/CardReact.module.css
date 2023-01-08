@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-inline-size: 250px;
+  padding-block: var(--paddingBlock, var(--space-s));
+  padding-inline: var(--paddingInline, var(--space-s));
+  box-shadow: 0 0 2em var(--clr-400);
+  text-align: center;
+}
+
+.card>*+* {
+  margin-block-start: var(--flow-space, var(--step-1, 1rem));
+}
+
+.img {
+  border-radius: 9999px;
+  background-color: var(--clr-400);
+}

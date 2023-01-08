@@ -1,0 +1,8 @@
+/* Add vertical rhythm between sections */
+
+.flow-section > * + * {
+  margin-block-start: max(
+    var(--flow-section-wide, 6vh),
+    var(--flow-section-narrow, 3rem)
+  );
+}

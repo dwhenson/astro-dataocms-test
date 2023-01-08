@@ -1,0 +1,39 @@
+---
+import PageBase from "../layouts/PageBase.astro";
+import CardReact from "../components/Card/CardReact";
+import AstroCard from "../components/AstroCard.astro";
+import AstroButton from "../components/AstroButton.astro";
+const title = "Card examples";
+---
+
+<PageBase title={title}>
+  <div class="stack">
+    <h1>{title}</h1>
+
+    <section class="stack">
+      <h2>Astro Components</h2>
+      <AstroCard level={3}>
+        <img slot="card-image" src="/" alt="" width="90" height="90" />
+        <span slot="card-heading">A heading with level</span>
+        <p slot="card-description" class="description">
+          A long bit of text that goes on and on and on and on and on!
+        </p>
+        <AstroButton href={"/"} cta={"Buy stuff"} />
+      </AstroCard>
+    </section>
+
+    <section class="stack">
+      <h2>React Components</h2>
+      <div class="grid">
+        <CardReact
+          level={3}
+          src={"/"}
+          heading={"A heading with level"}
+          description={"A long bit of text that goes on and on and on and on and on!"}
+          href={"/"}
+          cta={"Buy stuff"}
+        />
+      </div>
+    </section>
+  </div>
+</PageBase>

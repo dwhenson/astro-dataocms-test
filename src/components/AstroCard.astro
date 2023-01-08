@@ -1,0 +1,32 @@
+---
+import AstroButton from "./AstroButton.astro";
+const { level } = Astro.props;
+const Heading = `h${level}`;
+---
+
+<section class="stack card">
+  <div class="img">
+    <slot name="card-image" />
+  </div>
+  <Heading>
+    <slot name="card-heading" />
+  </Heading>
+  <slot name="card-description" />
+  <AstroButton href={"/"} cta={"Buy stuff"} />
+</section>
+
+<style>
+  section {
+    max-width: 250px;
+    text-align: center;
+    align-items: center;
+    padding-block: var(--paddingBlock, var(--space-s));
+    padding-inline: var(--paddingInline, var(--space-s));
+    box-shadow: 0 0 2em var(--clr-400);
+  }
+
+  .img {
+    background-color: var(--clr-400);
+    border-radius: 9999px;
+  }
+</style>

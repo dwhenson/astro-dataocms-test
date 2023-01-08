@@ -1,0 +1,15 @@
+.align-content {
+  --min-content: 320px;
+  --max-content: 1440px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(var(--min, 1rem), 1fr)
+    minmax(var(--min-content, 320px), var(--max-content, 1440px))
+    minmax(var(--min, 1rem), 1fr);
+  place-items: center;
+
+  > * {
+    grid-column: 2;
+  }
+}

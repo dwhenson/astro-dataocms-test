@@ -1,0 +1,20 @@
+/* Add basic box layout and colors */
+
+.box {
+  --color-dark: var(--clr-neutral-500);
+  --color-light: var(--clr-neutral-100);
+
+  padding-block: var(--bespoke-padding, var(--space-s, 1rem));
+  padding-inline: var(--bespoke-padding, var(--space-s, 1rem));
+  background-color: var(--bespoke-dark, var(--color-dark));
+  color: var(--bespoke-light, var(--color-light));
+
+  &.invert {
+    background-color: var(--bespoke-dark, var(--color-light));
+    color: var(--bespoke-light, var(--color-dark));
+  }
+
+  * {
+    color: inherit;
+  }
+}

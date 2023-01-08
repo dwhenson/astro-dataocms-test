@@ -1,0 +1,46 @@
+---
+import PageBase from "../layouts/PageBase.astro";
+import Banner from "../components/Banner/Banner";
+import AstroBanner from "../components/AstroBanner.astro";
+const title = "Banner examples";
+---
+
+<PageBase title={title}>
+  <div class="stack">
+    <h1>{title}</h1>
+
+    <section class="stack">
+      <h2>Astro Components</h2>
+      <!-- Basic styles -->
+      <AstroBanner>
+        Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
+      </AstroBanner>
+      <!-- Change values with custom properties -->
+      <AstroBanner color="#2542A2" background="#ffd700">
+        Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
+      </AstroBanner>
+      <!-- Pass values as props and use tailwind-->
+      <AstroBanner
+        class="bg-indigo-900"
+        content="This works but I can't pass an element via props..."
+      />
+    </section>
+
+    <section class="stack">
+      <h2>React Components</h2>
+      <Banner theme={null} style={""}>
+        Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
+      </Banner>
+      <!-- Change values with custom props via class -->
+      <Banner theme={"accent"} style={""}>
+        Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
+      </Banner>
+      <!-- Pass values as props and use tailwind-->
+      <Banner
+        theme={null}
+        children={"This works but I can't pass an element via props..."}
+        style={"bg-indigo-900"}
+      />
+    </section>
+  </div>
+</PageBase>

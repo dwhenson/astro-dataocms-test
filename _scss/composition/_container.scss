@@ -1,0 +1,7 @@
+.container {
+  inline-size: min(
+    (100% - (var(--space-retained, 2rem))),
+    var(--max-container, 65ch)
+  );
+  margin-inline: auto;
+}
