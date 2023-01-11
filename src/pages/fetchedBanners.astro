@@ -1,0 +1,43 @@
+---
+import PageBase from "../layouts/PageBase.astro";
+import AstroBanner from "../components/AstroBanner.astro";
+import Banner from "../components/Banner/Banner";
+import { render } from "datocms-structured-text-to-plain-text";
+const title = "Banner examples - Fetched Data";
+const token = "bf8b713eaefbe9c66533cfb6574966";
+// Fetch data
+const response = await fetch("https://graphql.datocms.com/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify({
+    query: `query {
+                banner {
+                  content {
+                    value
+                        }
+                    }
+                }`,
+  }),
+});
+const data = await response.json();
+const content = render(data.data.banner.content.value);
+---
+
+<PageBase title={title}>
+  <div class="stack">
+    <h1>{title}</h1>
+    <h2>Astro Components</h2>
+    <AstroBanner class="bg-indigo-900" content={content} />
+    <AstroBanner>
+      {content}
+    </AstroBanner>
+    <h2>React Components</h2>
+    <Banner theme={null} style={""}>
+      {content}
+    </Banner>
+  </div>
+</PageBase>

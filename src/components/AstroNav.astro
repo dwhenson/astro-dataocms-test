@@ -1,0 +1,29 @@
+---
+const pages = await Astro.glob("../pages/*.astro");
+---
+
+<nav>
+  <ul role="list">
+    {
+      pages
+
+        .map((page) => (
+          <li>
+            <a href={page.url.slice(1) ? page.url : "/"}>
+              {page.url.slice(1) ? page.url.slice(1) : "home"}
+            </a>
+          </li>
+        ))
+        .reverse()
+    }
+  </ul>
+</nav>
+
+<style>
+  ul {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+</style>

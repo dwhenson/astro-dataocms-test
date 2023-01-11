@@ -1,7 +1,7 @@
 import Button from '../Button/Button';
 import styles from './CardReact.module.css';
 
-export default function CardReact({level, src, heading, description, href, cta}) {
+export default function CardReact({style, level, src, heading, description, href, cta}) {
   const Heading = `h${level}`;
 
   return (
@@ -13,7 +13,7 @@ export default function CardReact({level, src, heading, description, href, cta})
         {heading}
       </Heading>
       <p className={styles.description}>{description}</p>
-      <Button href={href} cta={cta} />
+      <Button href={href} cta={cta} style={style}/>
     </section>
   );
 }

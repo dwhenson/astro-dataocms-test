@@ -11,7 +11,9 @@ const Heading = `h${level}`;
   <Heading>
     <slot name="card-heading" />
   </Heading>
-  <slot name="card-description" />
+  <div class="description">
+    <slot name="card-description" />
+  </div>
   <AstroButton href={"/"} cta={"Buy stuff"} />
 </section>
 
@@ -23,10 +25,15 @@ const Heading = `h${level}`;
     padding-block: var(--paddingBlock, var(--space-s));
     padding-inline: var(--paddingInline, var(--space-s));
     box-shadow: 0 0 2em var(--clr-400);
+    align-self: stretch;
   }
 
   .img {
     background-color: var(--clr-400);
     border-radius: 9999px;
+  }
+
+  .description {
+    margin-block-end: auto;
   }
 </style>

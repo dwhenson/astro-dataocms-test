@@ -44,6 +44,7 @@ h4 {
 /* Set core body defaults */
 body {
   min-block-size: 100vh;
+  margin-block-end: 3rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   text-rendering: optimizeSpeed;

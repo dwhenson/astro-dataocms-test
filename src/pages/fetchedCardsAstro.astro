@@ -1,0 +1,70 @@
+---
+import { render } from "datocms-structured-text-to-plain-text";
+import PageBase from "../layouts/PageBase.astro";
+import AstroCard from "../components/AstroCard.astro";
+import AstroButton from "../components/AstroButton.astro";
+import CardReact from "../components/Card/CardReact";
+import Button from "../components/Button/Button";
+const title = "Cards examples - Fetched Astro";
+const token = "bf8b713eaefbe9c66533cfb6574966";
+// Fetch data
+const response = await fetch("https://graphql.datocms.com/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify({
+    query: `{
+              allCards {
+                alt
+                heading
+                id
+                level
+                src
+                cta {
+                  cta {
+                    value
+                  }
+                  href
+                  id
+                }
+                  description {
+                    value
+                }
+              }
+            }`,
+  }),
+});
+const data = await response.json();
+---
+
+<PageBase title={title}>
+  <div class="stack">
+    <h1>{title}</h1>
+    <h2>Astro Components</h2>
+    <section class="grid">
+      {
+        data.data.allCards.map(
+          ({ alt, heading, id, level, src, description }) => {
+            return (
+              <AstroCard level={level} key={id}>
+                <img
+                  slot="card-image"
+                  src={src}
+                  alt={alt}
+                  width="90"
+                  height="90"
+                />
+                <span slot="card-heading">{heading}</span>
+                <p slot="card-description">{render(description.value)}</p>
+                <AstroButton href={"/"} cta={"Buy stuff"} />
+              </AstroCard>
+            );
+          }
+        )
+      }
+    </section>
+  </div>
+</PageBase>
