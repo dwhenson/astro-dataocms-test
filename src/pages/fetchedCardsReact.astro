@@ -22,17 +22,16 @@ const response = await fetch("https://graphql.datocms.com/", {
                 level
                 src
                 cta {
+                  href
                   cta {
                     value
                   }
-                  href
-                  id
                 }
-                  description {
-                    value
+                description {
+                  value
                 }
               }
-            }`,
+          }`,
   }),
 });
 const data = await response.json();
@@ -46,7 +45,6 @@ const data = await response.json();
       {
         data.data.allCards.map(
           ({ level, src, heading, description, href, cta }) => {
-            console.log(render(cta[0].cta));
             return (
               <CardReact
                 level={level}

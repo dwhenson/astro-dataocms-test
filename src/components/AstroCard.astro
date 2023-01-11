@@ -1,6 +1,6 @@
 ---
 import AstroButton from "./AstroButton.astro";
-const { level } = Astro.props;
+const { level, href, cta } = Astro.props;
 const Heading = `h${level}`;
 ---
 
@@ -14,7 +14,7 @@ const Heading = `h${level}`;
   <div class="description">
     <slot name="card-description" />
   </div>
-  <AstroButton href={"/"} cta={"Buy stuff"} />
+  <AstroButton href={href} cta={cta} />
 </section>
 
 <style>

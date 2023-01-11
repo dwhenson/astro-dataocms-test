@@ -3,8 +3,6 @@ import { render } from "datocms-structured-text-to-plain-text";
 import PageBase from "../layouts/PageBase.astro";
 import AstroCard from "../components/AstroCard.astro";
 import AstroButton from "../components/AstroButton.astro";
-import CardReact from "../components/Card/CardReact";
-import Button from "../components/Button/Button";
 const title = "Cards examples - Fetched Astro";
 const token = "bf8b713eaefbe9c66533cfb6574966";
 // Fetch data
@@ -47,9 +45,15 @@ const data = await response.json();
     <section class="grid">
       {
         data.data.allCards.map(
-          ({ alt, heading, id, level, src, description }) => {
+          ({ alt, heading, id, level, src, description, href, cta }) => {
+            console.log(render(cta[0].cta));
             return (
-              <AstroCard level={level} key={id}>
+              <AstroCard
+                level={level}
+                key={id}
+                href={href}
+                cta={render(cta[0].cta)}
+              >
                 <img
                   slot="card-image"
                   src={src}
@@ -59,7 +63,6 @@ const data = await response.json();
                 />
                 <span slot="card-heading">{heading}</span>
                 <p slot="card-description">{render(description.value)}</p>
-                <AstroButton href={"/"} cta={"Buy stuff"} />
               </AstroCard>
             );
           }
