@@ -7,6 +7,7 @@ const { content, color, background, paddingBlock, paddingInline } = Astro.props;
   <p>
     {content || <slot />}
   </p>
+  {}
 </section>
 
 <style define:vars={{ color, background, paddingBlock, paddingInline }}>

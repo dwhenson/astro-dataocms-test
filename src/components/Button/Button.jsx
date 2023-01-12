@@ -1,6 +1,6 @@
 import styles from "./Button.module.css"
 
-export default function Button ({href, cta, style}) {
+export default function Button ({href, cta, style = ""}) {
   const Element = href ? "a" : "button";
 
   return (

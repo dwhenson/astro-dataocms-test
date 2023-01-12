@@ -46,7 +46,6 @@ const data = await response.json();
       {
         data.data.allCards.map(
           ({ alt, heading, id, level, src, description, href, cta }) => {
-            console.log(render(cta[0].cta));
             return (
               <AstroCard
                 level={level}

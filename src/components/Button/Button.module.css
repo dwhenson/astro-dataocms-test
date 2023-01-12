@@ -8,3 +8,8 @@
   color: var(--clr-050);
   cursor: pointer;
 }
+
+a.button {
+  all: revert;
+  color: var(--clr-050);
+}

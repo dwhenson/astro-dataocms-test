@@ -2,6 +2,7 @@
 import PageBase from "../layouts/PageBase.astro";
 import Banner from "../components/Banner/Banner";
 import AstroBanner from "../components/AstroBanner.astro";
+import Button from "../components/Button/Button";
 const title = "Banner examples";
 ---
 
@@ -28,18 +29,20 @@ const title = "Banner examples";
 
     <section class="stack">
       <h2>React Components</h2>
-      <Banner theme={null} style={""}>
+      <Banner theme={null} style={null}>
         Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
       </Banner>
       <!-- Change values with custom props via class -->
-      <Banner theme={"accent"} style={""}>
+      <Banner theme={"accent"} style={null}>
         Get in touch - <a href="tel:02477 181 481">02477 181 481</a>
       </Banner>
       <!-- Pass values as props and use tailwind-->
       <Banner
         theme={null}
-        children={"This works but I can't pass an element via props..."}
+        children={"Get in touch - "}
         style={"bg-indigo-900"}
+        href={"tel:02477 181 481"}
+        cta={"02477 181 481"}
       />
     </section>
   </div>
