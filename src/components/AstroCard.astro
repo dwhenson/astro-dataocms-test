@@ -1,20 +1,20 @@
 ---
 import AstroButton from "./AstroButton.astro";
-const { level, href, cta } = Astro.props;
+const { description, level, href, cta, heading } = Astro.props;
 const Heading = `h${level}`;
 ---
 
 <section class="stack card">
   <div class="img">
-    <slot name="card-image" />
+    <img src="/" alt="" width="90" height="90" />
   </div>
   <Heading>
-    <slot name="card-heading" />
+    {heading}
   </Heading>
   <div class="description">
-    <slot name="card-description" />
+    {description}
   </div>
-  <AstroButton href={href} cta={cta} />
+  <AstroButton href={href} cta={cta} style={"bg-indigo-900"} />
 </section>
 
 <style>

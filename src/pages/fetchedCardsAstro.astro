@@ -16,16 +16,13 @@ const response = await fetch("https://graphql.datocms.com/", {
   body: JSON.stringify({
     query: `{
               allCards {
-                alt
                 heading
                 id
                 level
-                src
                 cta {
                   cta {
                     value
                   }
-                  href
                   id
                 }
                   description {
@@ -44,28 +41,18 @@ const data = await response.json();
     <h2>Astro Components</h2>
     <section class="grid">
       {
-        data.data.allCards.map(
-          ({ alt, heading, id, level, src, description, href, cta }) => {
-            return (
-              <AstroCard
-                level={level}
-                key={id}
-                href={href}
-                cta={render(cta[0].cta)}
-              >
-                <img
-                  slot="card-image"
-                  src={src}
-                  alt={alt}
-                  width="90"
-                  height="90"
-                />
-                <span slot="card-heading">{heading}</span>
-                <p slot="card-description">{render(description.value)}</p>
-              </AstroCard>
-            );
-          }
-        )
+        data.data.allCards.map(({ heading, id, level, description, cta }) => {
+          return (
+            <AstroCard
+              key={id}
+              level={level}
+              href={"/"}
+              cta={render(cta[0].cta)}
+              heading={heading}
+              description={render(description.value)}
+            />
+          );
+        })
       }
     </section>
   </div>

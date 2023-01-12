@@ -12,13 +12,13 @@ const title = "Card examples";
 
     <section class="stack">
       <h2>Astro Components</h2>
-      <AstroCard level={3} href={"/"} cta={"Buy now"}>
-        <img slot="card-image" src="/" alt="" width="90" height="90" />
-        <span slot="card-heading">A heading with level</span>
-        <p slot="card-description">
-          A long bit of text that goes on and on and on and on and on!
-        </p>
-      </AstroCard>
+      <AstroCard
+        level={3}
+        href={"/"}
+        cta={"Buy now"}
+        heading={"A heading with level"}
+        description={"A long bit of text that goes on and on and on and on and on"}
+      />
     </section>
 
     <section class="stack">

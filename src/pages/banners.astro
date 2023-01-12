@@ -2,7 +2,6 @@
 import PageBase from "../layouts/PageBase.astro";
 import Banner from "../components/Banner/Banner";
 import AstroBanner from "../components/AstroBanner.astro";
-import Button from "../components/Button/Button";
 const title = "Banner examples";
 ---
 
@@ -23,7 +22,10 @@ const title = "Banner examples";
       <!-- Pass values as props and use tailwind-->
       <AstroBanner
         class="bg-indigo-900"
-        content="This works but I can't pass an element via props..."
+        content={"Get in touch -"}
+        style={"bg-indigo-900"}
+        href={"tel:02477 181 481"}
+        cta={"02477 181 481"}
       />
     </section>
 

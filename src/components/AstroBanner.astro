@@ -1,13 +1,16 @@
 ---
+import AstroButton from "./AstroButton.astro";
+
 const { class: className } = Astro.props;
-const { content, color, background, paddingBlock, paddingInline } = Astro.props;
+const { content, color, href, cta, background, paddingBlock, paddingInline } =
+  Astro.props;
 ---
 
 <section class={className}>
   <p>
     {content || <slot />}
+    {href && <AstroButton href={href} cta={cta} />}
   </p>
-  {}
 </section>
 
 <style define:vars={{ color, background, paddingBlock, paddingInline }}>
